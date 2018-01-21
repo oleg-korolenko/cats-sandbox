@@ -32,3 +32,17 @@ object PrintableInstances {
 }
 
 final case class Cat(name: String, age: Int, color: String)
+
+
+/**
+  * same with extension methods
+  * implicitly creates a PrintableOps container with all methods for A
+  * so we can use it basically :  Cat("Boniface", 12, "grey").format
+  */
+object PrintableSyntax {
+  implicit class PrintableOps[A](value: A) {
+    def format(implicit p: Printable[A]): String = p.format(value)
+    def print(implicit p: Printable[A]): Unit = println(p.format(value))
+  }
+
+}
