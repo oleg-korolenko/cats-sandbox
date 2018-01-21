@@ -1,5 +1,7 @@
 package sandbox.printable
 
+import sandbox.Cat
+
 /**
   * Created by oleg on 21/01/2018.
   */
@@ -30,9 +32,6 @@ object PrintableInstances {
       s"${value.name} is a ${value.age} year-old ${value.color} cat"
   }
 }
-
-final case class Cat(name: String, age: Int, color: String)
-
 
 /**
   * same with extension methods
