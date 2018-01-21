@@ -5,6 +5,9 @@ import sandbox.Cat
 /**
   * Created by oleg on 21/01/2018.
   */
+/**
+  * Interface  object which expose type class functionnality
+  */
 object Printable {
 
   def format[A](value: A)(implicit printable: Printable[A]): String = {
@@ -21,7 +24,7 @@ trait Printable[A] {
 }
 
 /**
-  * as implicit instances
+  * Implicit Type Class  instances
   */
 object PrintableInstances {
   implicit val stringPrintable: Printable[String] = new Printable[String] {
@@ -37,7 +40,7 @@ object PrintableInstances {
 }
 
 /**
-  * same with extension methods (as syntax)
+  * Interface Syntaxt which provides extension methods (as alternative to Interface Object)
   * implicitly creates a PrintableOps container with all methods for A
   * so we can use it basically :  Cat("Boniface", 12, "grey").format
   */
