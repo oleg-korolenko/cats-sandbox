@@ -5,14 +5,12 @@ package sandbox.printable
   */
 object Printable {
 
-  import PrintableInstances._
-
   def format[A](value: A)(implicit printable: Printable[A]): String = {
     printable.format(value)
   }
 
-  def print[A](value: A)(implicit printable: Printable[A]): String = {
-    print(format(value))
+  def print[A](value: A)(implicit printable: Printable[A]): Unit = {
+    println(format(value))
   }
 }
 
@@ -27,4 +25,10 @@ object PrintableInstances {
   implicit val intPrintable: Printable[Int] = new Printable[Int] {
     override def format(value: Int): String = value.toString
   }
+  implicit val catPrintable: Printable[Cat] = new Printable[Cat] {
+    override def format(value: Cat): String =
+      s"${value.name} is a ${value.age} year-old ${value.color} cat"
+  }
 }
+
+final case class Cat(name: String, age: Int, color: String)
