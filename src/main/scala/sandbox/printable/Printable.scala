@@ -20,6 +20,9 @@ trait Printable[A] {
   def format(value: A): String
 }
 
+/**
+  * as implicit instances
+  */
 object PrintableInstances {
   implicit val stringPrintable: Printable[String] = new Printable[String] {
     override def format(value: String): String = value
@@ -34,7 +37,7 @@ object PrintableInstances {
 }
 
 /**
-  * same with extension methods
+  * same with extension methods (as syntax)
   * implicitly creates a PrintableOps container with all methods for A
   * so we can use it basically :  Cat("Boniface", 12, "grey").format
   */
