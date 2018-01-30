@@ -1,5 +1,4 @@
 package sandbox.monoid
-import sandbox.monoid.Monoids._
 
 import cats.instances.int._
 import cats.kernel.Monoid
