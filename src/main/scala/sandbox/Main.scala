@@ -18,7 +18,11 @@ object Main extends App {
 
   /** println(s"SuperAdder says = ${SuperAdder.add(List(Order(1.0, 2.0), Order(3.0, 4.0)))})") */
 
-  import sandbox.functor.Functors._
+  /** import sandbox.functor.Functors._
+    * *
+    * println(Tree.branch(Tree.leaf(10), Tree.leaf(20)).map(_ * 2))
+    */
 
-  println(Tree.branch(Tree.leaf(10), Tree.leaf(20)).map(_ * 2))
+  import sandbox.monad.IdMonadOps._
+  println(map(2)(x => x * 2))
 }
